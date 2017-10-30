@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>  
+</div>
+<div class="container" *ngIf="isEdit; else viewBlock">
+  <person-edit [person]="instancePerson" (finished)="finished($event)"></person-edit>
+</div>
+<ng-template #viewBlock>
+    <div class="container" >
+        <person-view [person]="instancePerson" (onEdit)="isEdit=true"></person-view>
+      </div>
+</ng-template>
+

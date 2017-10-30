@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>  
+</div>
+<div class="container">
+  <form #personForm="ngForm"  (submit)='onSubmit(personForm)'>
+    <div class="form-label">First Name:</div>
+    <div class="form-control">
+      <input type="text" name="firstName" ngModel #fn="ngModel" />
+      {{ fn.value}}
+    </div>
+    <div class="form-label">Last Name:</div>
+    <div class="form-control">
+      <input type="text" name="lastName" ngModel />
+    </div>
+    <div class="form-label">Email:</div>
+    <div class="form-control">
+      <input type="text" name="email" ngModel />
+    </div>
+    <div class="form-label">Phone:</div>
+    <div class="form-control">
+      <input type="text" name="phone" ngModel />
+    </div>
+    <div class="form-label">Password:</div>
+    <div class="form-control">
+      <input type="text" name="pass" ngModel />
+    </div>
+    <div class="form-label">Confirm Password:</div>
+    <div class="form-control">
+      <input type="text" name="confirmPass" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br />
+    {{ showValue(personForm.value)}}
+  </form>
+</div>
+

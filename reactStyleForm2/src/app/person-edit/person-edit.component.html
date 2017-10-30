@@ -1,0 +1,29 @@
+<form [formGroup]="personForm" (submit)='onSubmit()'>
+  <div class="form-label">First Name:</div>
+  <div class="form-control">
+    <input type="text" formControlName="firstName" />
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <p *ngIf="firstName.errors.required">
+        First name is required
+      </p>
+      <p *ngIf="firstName.errors.minlength">
+        First name should be atleast 3.
+      </p>
+    </div>
+  </div>
+  <div class="form-label">Last Name:</div>
+  <div class="form-control">
+    <input type="text" formControlName="lastName" />
+  </div>
+  <div class="form-label">Email:</div>
+  <div class="form-control">
+    <input type="text" formControlName="email" />
+  </div>
+  <div class="form-label">Phone:</div>
+  <div class="form-control">
+    <input type="text" formControlName="phone" />
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!personForm.valid">Submit</button>
+  <button type="button" class="btn" (click)="onCancel()">Cancel</button>
+  <br /> {{ showValue(personForm.value) }}
+</form>

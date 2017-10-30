@@ -1,0 +1,65 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<h2>Different types of bindings: </h2>
+<ul>
+  <li>
+    <h2>Interpolation -> <span>{{</span><span>}}</span></h2>
+    <ul>
+      <li>{{stringVal}}</li>
+      <li>{{1 + 2}}</li>
+    </ul>
+  </li>
+  <li>
+    <h2>Controller to View binding</h2>
+    <ul>
+      <li>
+        using -> []
+        <p>
+           <input type="text" [value]="myLoadText"/>
+           {{myLoadText}}
+        </p>
+      </li>
+      <li>using -> bind-attribute
+        <div>
+          <textarea bind-value="myMultiLineText" style="width:240px; height:140px"></textarea>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h2>View to controller communication</h2>
+    <ul>
+      <li>using -> ()
+        <button type="button" (click)="showAlert()">Click Me</button>
+      </li>
+      <li>using -> on-attribute
+        Toggle:
+        <input type="checkbox" on-change="toggleCheckText()" [value]="tSwitch" />
+        <p *ngIf="tSwitch; else offBlock">On</p>
+        <ng-template #offBlock><p>Off</p></ng-template>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h2>Two-way binding</h2>
+    <ul>
+      <li>using -> [],()
+        <input type="text" #twoWayTextBox [value]="twoWayText2" (keyup)="twoWayText2 = twoWayTextBox.value" />
+        {{twoWayText2}}
+      </li>
+      <li>using -> [()]
+        <input type="text" [(ngModel)]="twoWayText" />
+        {{twoWayText}}
+      </li>
+      <li>using -> bindon-attribute
+          <input type="text" bindon-ngModel="twoWayText1" />
+          {{twoWayText1}}
+      </li>
+    </ul>
+  </li>
+</ul>
+

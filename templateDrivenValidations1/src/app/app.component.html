@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>  
+</div>
+<div class="container">
+  <form #personForm="ngForm"  (submit)='onSubmit(personForm)'>
+    <div class="form-label">First Name:</div>
+    <div class="form-control">
+      <input type="text" #fn="ngModel" name="firstName" required minlength="3" ngModel />
+      <div *ngIf="fn.invalid && (fn.dirty || fn.touched)">
+          <p *ngIf="fn.errors.required">
+            First name is required
+          </p>
+          <p *ngIf="fn.errors.minlength">
+              First name should be atleast 3.
+            </p>
+        </div>
+    </div>
+    <div class="form-label">Last Name:</div>
+    <div class="form-control">
+      <input type="text" name="lastName" required ngModel />
+    </div>
+    <div class="form-label">Email:</div>
+    <div class="form-control">
+      <input type="text" required email name="email" ngModel />
+    </div>
+    <div class="form-label">Phone:</div>
+    <div class="form-control">
+      <input type="text" name="phone" pattern="^[0][0-9]{10}$" ngModel />
+    </div>
+    <div class="form-label">Password:</div>
+    <div class="form-control">
+      <input type="password" name="pass" #pass ngModel />
+    </div>
+    <div class="form-label">Confirm Password:</div>
+    <div class="form-control">
+      <input type="password" name="confirmPass" ngModel [compareEquals]="'pass'" />
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!personForm.valid">Submit</button>
+    <br />
+    {{ showValue(personForm.value) }}
+  </form>
+</div>
+

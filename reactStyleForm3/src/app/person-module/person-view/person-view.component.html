@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <td>First Name:</td>
+    <td>{{person.FirstName}}</td>
+  </tr>
+  <tr>
+    <td>Last Name:</td>
+    <td>{{person.LastName}}</td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>{{person.Email}}</td>
+  </tr>
+  <tr>
+    <td>Phone:</td>
+    <td>{{person.Phone}}</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button type="button" class="btn btn-primary" [routerLink]="['/employee/edit', person.Id]">Edit</button>
+    </td>
+  </tr>
+</table>

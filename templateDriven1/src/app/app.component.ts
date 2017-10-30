@@ -1,0 +1,19 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Template Driven Form Binding';
+  onSubmit(form) {
+
+    form.reset();
+
+    //return false;
+  }
+  showValue(value) {
+    return JSON.stringify(value);
+  }
+}

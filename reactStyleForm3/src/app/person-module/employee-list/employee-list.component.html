@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email</td>
+    <td>Phone</td>
+    <td></td>
+  </tr>
+  <tr *ngFor="let person of employees">
+    <td>{{person.FirstName}}</td>
+    <td>{{person.LastName}}</td>
+    <td>{{person.Email}}</td>
+    <td>{{person.Phone}}</td>
+    <td>
+      <!-- <button type="button" (click)="view(person.id)">View</button> -->
+      <button type="button" [routerLink]="['/employee', person.Id]">View</button>
+      <button type="button"  [routerLink]="['/employee/edit', person.Id]">Edit</button>
+    </td>
+  </tr>
+</table>
